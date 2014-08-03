@@ -3,13 +3,30 @@
 <head>
 	<title>I couldn't say so</title>
 	<style>
-		body{
-			background: url(/img/pranesh.jpg) no-repeat;
+		body {
+			background: url(/img/pranesh1.jpg) no-repeat;
 			background-size: cover;
 		}
 	</style>
 </head>
 <body>
+
+	<script>
+		var imgs = 3,
+			count = 2;
+
+		setInterval(function () {
+
+			console.log(count);
+			document.body.style.backgroundImage = "url('/img/pranesh" + count + ".jpg')";
+
+			if (count == imgs)
+				count = 1;
+			else
+				count += 1;
+
+		}, 3000);
+	</script>
 
 </body>
 </html>
