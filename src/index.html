@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<title>I couldn't say so</title>
+	<meta name="viewport" content="width=1024" />
 	<style>
 		body {
 			background: url(/img/pranesh1.jpg) no-repeat;
@@ -17,13 +18,8 @@
 
 		setInterval(function () {
 
-			console.log(count);
 			document.body.style.backgroundImage = "url('/img/pranesh" + count + ".jpg')";
-
-			if (count == imgs)
-				count = 1;
-			else
-				count += 1;
+			count = (count == imgs) ? 1 : count + 1;
 
 		}, 3000);
 	</script>
