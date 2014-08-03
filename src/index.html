@@ -14,15 +14,18 @@
 <body role="main">
 
 	<script>
-		var imgs = 3,
-			count = 2;
+		(function () {
+			var interval = 3000,
+				images = 3,
+				current = 2;
 
-		setInterval(function () {
+			function rotate() {
+				document.body.style.backgroundImage = "url('/img/pranesh" + current + ".jpg')";
+				current = (current == images) ? 1 : current + 1;
+			}
 
-			document.body.style.backgroundImage = "url('/img/pranesh" + count + ".jpg')";
-			count = (count == imgs) ? 1 : count + 1;
-
-		}, 3000);
+			setInterval(rotate, interval);
+		})();
 	</script>
 
 </body>
