@@ -13,7 +13,11 @@
 		img {
 			opacity: 0;
 			width: 100%;
+			min-height: 100%;
 			position: absolute;
+			-moz-transition: opacity .5s linear;
+			-o-transition: opacity .5s linear;
+			-webkit-transition: opacity .5s linear;
 			transition: opacity .5s linear;
 		}
 	</style>
@@ -22,9 +26,9 @@
 
 	<!-- Use <img> tags to benefit from fingerprinting -->
 	<div role="main">
-		<img src="img/pranesh1.jpg" alt="Pranesh1" style="opacity:1" />
-		<img src="img/pranesh2.jpg" alt="Pranesh2" />
-		<img src="img/pranesh3.jpg" alt="Pranesh3" />
+		<img src="img/pranesh1.jpg" width="681" height="446" alt="Pranesh1" style="opacity:1" />
+		<img src="img/pranesh2.jpg" width="960" height="636" alt="Pranesh2" />
+		<img src="img/pranesh3.jpg" width="1200" height="800" alt="Pranesh3" />
 	</div>
 
 	<script>
