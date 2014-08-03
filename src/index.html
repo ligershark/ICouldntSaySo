@@ -32,9 +32,10 @@
 		<h1 itemprop="name">I couldn't say so</h1>
 
 		<div id="images">
-			<img src="img/pranesh1.jpg" width="681" height="446" alt="Pranesh1" style="opacity:1" />
-			<img src="img/pranesh2.jpg" width="960" height="636" alt="Pranesh2" />
-			<img src="img/pranesh3.jpg" width="1200" height="800" alt="Pranesh3" />
+			<img src="img/pranesh1.jpg" width="900" height="600" alt="Pranesh1" style="opacity:1" />
+			<img src="img/pranesh2.jpg" width="900" height="600" alt="Pranesh2" />
+			<img src="img/pranesh3.jpg" width="900" height="600" alt="Pranesh3" />
+			<img src="img/pranesh4.jpg" width="900" height="600" alt="Pranesh4" />
 		</div>
 	</div>
 
@@ -48,6 +49,7 @@
 
 				for (var i = 0; i < images.length; i++) {
 					images[i].style.opacity = (i === next) ? 1 : 0;
+					//images[1].requestFullscreen();
 				}
 
 				next = (next === images.length - 1) ? 0 : next + 1;
