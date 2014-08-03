@@ -2,30 +2,48 @@
 <html lang="en" itemscope itemtype="http://schema.org/WebApplication">
 <head>
 	<title itemprop="name">I couldn't say so</title>
-	<meta name="viewport" content="width=1024" />
+	<meta name="viewport" content="width=900" />
 	<meta name="description" content="I couldn't say so" />
 	<style>
 		body {
-			background: url(/img/pranesh1.jpg) no-repeat;
-			background-size: cover;
+			margin: 0;
+			overflow: hidden;
+		}
+
+		img {
+			opacity: 0;
+			width: 100%;
+			position: absolute;
+			transition: opacity .5s linear;
 		}
 	</style>
 </head>
 <body>
 
+	<!-- Use <img> tags to benefit from fingerprinting -->
+	<div role="main">
+		<img src="img/pranesh1.jpg" alt="Pranesh1" style="opacity:1" />
+		<img src="img/pranesh2.jpg" alt="Pranesh2" />
+		<img src="img/pranesh3.jpg" alt="Pranesh3" />
+	</div>
+
 	<script>
-		(function () {
-			var interval = 3000,
-				images = 3,
-				current = 2;
+		(function (doc) {
+			var interval = 3000, // milliseconds between rotations
+				images = doc.querySelector("div").children,
+				current = 1;
 
 			function rotate() {
-				document.body.style.backgroundImage = "url('/img/pranesh" + current + ".jpg')";
-				current = (current == images) ? 1 : current + 1;
+
+				for (var i = 0; i < images.length; i++) {
+					images[i].style.opacity = (i === current) ? "1" : "0";
+				}
+
+				current = (current == images.length - 1) ? 0 : current + 1;
 			}
 
 			setInterval(rotate, interval);
-		})();
+		})(document);
 	</script>
 
 </body>
