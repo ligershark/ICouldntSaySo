@@ -10,6 +10,7 @@
 			margin: 0;
 			overflow: hidden;
 			background: black;
+			height: 100%;
 		}
 
 		img {
@@ -22,6 +23,15 @@
 			-o-transition: opacity .8s linear;
 			-webkit-transition: opacity .8s linear;
 			transition: opacity .8s linear;
+		}
+
+		#controls {
+			position: absolute;
+			top: .5em;
+			right: .7em;
+			cursor: pointer;
+			color: white;
+			font: bold 2em arial;
 		}
 	</style>
 </head>
@@ -38,13 +48,21 @@
 			<img src="img/pranesh4.jpg" width="900" height="600" alt="Pranesh4" />
 			<img src="img/pranesh5.jpg" width="900" height="600" alt="Pranesh5" />
 		</div>
+
+		<audio preload="auto">
+			<source src="audio/bennyhill.mp3" type="audio/mpeg" />
+		</audio>
+
+		<div id="controls">ll</div>
 	</div>
 
 	<script>
 		(function (doc) {
 			var interval = 3000, // milliseconds between transitions
 				images = doc.getElementById("images").children,
-				next = 1;
+				next = 1,
+				audio = document.querySelector("audio"),
+				controls = document.getElementById("controls");
 
 			function rotate() {
 
@@ -56,7 +74,23 @@
 				next = (next === images.length - 1) ? 0 : next + 1;
 			}
 
+			function tooglePlay() {
+				if (audio.paused) {
+					audio.play();
+				}
+				else {
+					audio.pause();
+				}
+
+				setTimeout(function () {
+					controls.innerHTML = audio.paused ? "►" : "ll ";
+				}, 100);
+			}
+
+			tooglePlay();
 			setInterval(rotate, interval);
+			document.getElementById("controls").onclick = tooglePlay;
+
 		})(document);
 	</script>
 
